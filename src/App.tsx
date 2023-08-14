@@ -1,13 +1,10 @@
-import  List  from './List'
-import './App.css'
-import { useState } from "react"
-
+import Board from './tik-tac-toe/Board'
 
 function App() {
  
   return (
     <>
-     <List />
+     <Board />
     </>
   )
 }
