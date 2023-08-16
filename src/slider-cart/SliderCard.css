@@ -1,0 +1,28 @@
+/* SliderCard.css */
+.slider-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .logo-image {
+    background-size: cover;
+    max-width: 350px;
+    max-height: 350px;
+    border-radius: 25px;
+  }
+  
+  .card-content {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .description {
+    font-weight: bold;
+  }
+  
+  .bio {
+    color: gray;
+  }

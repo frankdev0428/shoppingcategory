@@ -1,5 +1,7 @@
 import React from 'react';
-import '../slider-cart/app.css';
+
+
+import './sliderCard.css'
 interface Props {
     imageSrc : string,
     description: string,
