@@ -1,10 +1,10 @@
-import Game from './tik-tac-toe/Board'
+import ItemsBoard from './product-sources/ItemsBoard'
 
 function App() {
  
   return (
     <>
-     <Game />
+     <ItemsBoard />
     </>
   )
 }
