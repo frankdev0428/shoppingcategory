@@ -1,11 +1,11 @@
-import React from 'react';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SliderCard from './SliderCard';
 
 interface Props {
-    cardData : string
+    cardData : string;
 }
 
 const SliderComponent = ( {cardData} : Props) => {

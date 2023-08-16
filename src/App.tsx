@@ -1,10 +1,10 @@
 import SliderComponent from "./slider-cart/SliderComponent"
-
+import img1 from './slider-cart/images-stock/img1.jpeg'
 
 function App() {
    const cardData = [
     {
-      imageSrc: 'logo1.png',
+      imageSrc: { img1 },
       description: 'Description for Card 1',
       bio: 'Bio for Card 1',
     },
@@ -21,7 +21,8 @@ function App() {
    ]
   return (
     <div className="app">
-      <SliderComponent />
+      <SliderComponent cardData={cardData} />
+      
     </div>
   )
 }
