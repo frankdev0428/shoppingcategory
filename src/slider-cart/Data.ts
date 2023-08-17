@@ -5,7 +5,7 @@ const dataCard = [
       imageSrc: 
       'https://images.pexels.com/photos/17939487/pexels-photo-17939487/free-photo-of-love-hand-water-summer.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load '
       ,
-      description: 'Description for Card 1',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium modi esse ducimus tempore non quisquam exercitationem dignissimos, nesciunt animi excepturi?',
       bio: 'Bio for Card 1',
     },
     {

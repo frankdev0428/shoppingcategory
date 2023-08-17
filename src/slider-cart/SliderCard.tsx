@@ -1,7 +1,6 @@
 import React from 'react';
+import styles from './SliderCard.module.css';
 
-
-import './sliderCard.css'
 interface Props {
     imageSrc : string,
     description: string,
@@ -10,13 +9,14 @@ interface Props {
 
 const SliderCard = ( {imageSrc , description , bio} : Props) => {
   return (
-    <div className="slider-card">
-      <img src={imageSrc} alt="Logo" className="logo-image" />
+    <div className={styles.sliderCard}>
+      <img src={imageSrc} alt="Logo" className={styles.logoImage}/>
       <div className="card-content">
-      <p className="description">{description}</p>
-      <p className="bio">{bio}</p>
+      <p className={styles.description}>{description}</p>
+      <p className={styles.bio}>{bio}</p>
     </div>
     </div>
+    
   )
 }
 

@@ -1,20 +1,26 @@
 /* SliderCard.css */
-.slider-card {
+.sliderCard {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    border: 4px solid rgb(120, 121, 93);
+    margin: 1rem 5rem;
+    background-color: rgba(156, 163, 180, 0.14);
+    border-radius : 20px;
+    box-shadow: 25px 15px 10px rgba(180, 156, 158, 0.673);
   }
   
-  .logo-image {
+  .logoImage {
     background-size: cover;
     max-width: 350px;
     max-height: 350px;
     border-radius: 25px;
+    box-shadow: 25px 15px 23px rgba(180, 156, 158, 0.673);
   }
   
-  .card-content {
+  .cardContent {
     text-align: center;
     margin-top: 10px;
   }
@@ -24,5 +30,5 @@
   }
   
   .bio {
-    color: gray;
+    color: red;
   }
