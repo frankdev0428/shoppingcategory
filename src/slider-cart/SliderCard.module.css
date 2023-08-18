@@ -5,19 +5,19 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    border: 4px solid rgb(120, 121, 93);
-    margin: 0rem 5rem;
     background-color: rgba(156, 163, 180, 0.14);
     border-radius : 20px;
-    box-shadow: 25px 15px 10px rgba(180, 156, 158, 0.673);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   }
   
   .logoImage {
     background-size: cover;
     max-width: 350px;
     max-height: 350px;
-    border-radius: 25px;
-    box-shadow: 25px 15px 23px rgba(180, 156, 158, 0.673);
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 5px 5px 10px rgba(180, 156, 158, 0.673);
+    margin-bottom: 15px;
   }
   
   .cardContent {
@@ -26,9 +26,9 @@
   }
   
   .description {
-    font-weight: bold;
+    font-weight: 300;
   }
   
   .bio {
-    color: red;
+    
   }

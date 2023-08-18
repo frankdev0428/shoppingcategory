@@ -20,6 +20,11 @@ const DataModify: React.FC<DataModifyProps> = (props) => {
       setInputValue('');
     }
   };
+  const handleClear = (index: number) => {
+    const newDataList = [...dataList];
+    newDataList.splice(index , 1);
+    setDataList(newDataList);
+  };
 
   return (
     <div className={styles.dataModify}>
@@ -30,11 +35,13 @@ const DataModify: React.FC<DataModifyProps> = (props) => {
           onChange={handleInputChange}
           placeholder="Enter data"
         />
-        <button type="submit">Add</button>
+        <button className = 'btn btn-primary' type="submit">Add</button>
       </form>
       <ul>
         {dataList.map((data, index) => (
-          <li key={index}>{data}</li>
+          <li key={index}>{data}
+         <button onClick={() => handleClear(index)} className='btn btn-outline-danger'>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
