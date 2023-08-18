@@ -10,8 +10,6 @@ function App() {
       <div className="dataModify">
         <DataModify />
       </div>
-      <h1 className= {styles.title} 
-      >This is Slider Collection</h1>
       <SliderComponent cardData={dataCard} />
     </div>
   )
