@@ -35,6 +35,10 @@ function App() {
     return () => controller.abort();
   }, [])
 
+  const deleteUSer = (user : User) {
+     setUsers(users.filter(u => u.id !== user.id));
+  }
+
   return (
     <div className={styles.app}>
       <Navbar />
@@ -42,9 +46,9 @@ function App() {
        { isLoading && <div className="spinner-border"></div>}
         
         <p className="text-danger">{error}</p>
-        <ul>
-        {users.map(user => <li key={user.id}>
-         {user.name} 
+        <ul className="list-group">
+        {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
+         {user.name}<button className="btn btn-outline-danger" onClick= {() => deleteUser(user)}>Delete</button>
         </li>)}
         </ul>
       </div>
