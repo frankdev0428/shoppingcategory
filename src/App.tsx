@@ -3,15 +3,14 @@ import dataCard from "./slider-cart/data";
 import styles from '../src/App.module.css'
 import DataModify from "./modify/DataModify";
 import Footer from "./footer/Footer";
+import Navbar from "./Navbar/Navbar";
 
 function App() {
    
   return (
     <div className={styles.app}>
-      
-      <div className="dataModify">
-        <DataModify />
-      </div>
+      <Navbar />
+      <DataModify />
       <SliderComponent cardData={dataCard} />
       <Footer />
     </div>

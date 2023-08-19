@@ -1,0 +1,119 @@
+/* Navbar.css */
+.navbar {
+  background-color: #333;
+  color:  #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 15px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 1rem;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+  padding: 1rem;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  padding: 0;
+  top: 100%;
+  left: 0;
+  width: 150px;
+  border: 1px solid #ddd;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.bar.animate:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bar.animate:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.animate:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
