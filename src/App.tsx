@@ -6,7 +6,7 @@ import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import axios, { CanceledError } from 'axios';
 import { useEffect , useState } from 'react';
-
+import LoveCom from './emotion-component/LoveCom'
 interface User {
   id: number;
   name: string;
@@ -35,10 +35,7 @@ function App() {
     return () => controller.abort();
   }, [])
 
-  const deleteUSer = (user : User) {
-     setUsers(users.filter(u => u.id !== user.id));
-  }
-
+  
   return (
     <div className={styles.app}>
       <Navbar />
@@ -48,12 +45,13 @@ function App() {
         <p className="text-danger">{error}</p>
         <ul className="list-group">
         {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
-         {user.name}<button className="btn btn-outline-danger" onClick= {() => deleteUser(user)}>Delete</button>
+         {user.name} 
         </li>)}
         </ul>
       </div>
       <DataModify />
       <SliderComponent cardData={dataCard} />
+      <LoveCom />
       <Footer />
     </div>
   )
