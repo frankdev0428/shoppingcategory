@@ -6,8 +6,6 @@ import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import axios, { CanceledError } from 'axios';
 import { useEffect , useState } from 'react';
-import LoveCom from './emotion-component/LoveCom'
-import LikeCom from "./emotion-component/LikeCom";
 interface User {
   id: number;
   name: string;
@@ -35,7 +33,9 @@ function App() {
    
     return () => controller.abort();
   }, [])
-
+   const deleteUser = (user: User) => {
+    setUsers(users.filter(u => u.id !== user.id))
+   }
   
   return (
     <div className={styles.app}>
@@ -47,7 +47,7 @@ function App() {
         <ul className="list-group">
         {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
          {user.name} 
-          <LikeCom onClick= {() => {console.log('liked!')}}/>
+        <button className="btn btn-outline-danger" onClick={() => deleteUser(user)}>Delete</button>
         </li>)}
         </ul>
       </div>
