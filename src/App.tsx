@@ -45,13 +45,14 @@ function App() {
         <p className="text-danger">{error}</p>
         <ul className="list-group">
         {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
-         {user.name} 
+         {user.name} <LoveCom onClick={() => {
+          console.log('Clicked!')
+         }}/>
         </li>)}
         </ul>
       </div>
       <DataModify />
       <SliderComponent cardData={dataCard} />
-      <LoveCom />
       <Footer />
     </div>
   )
