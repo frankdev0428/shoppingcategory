@@ -1,6 +1,7 @@
 // DataModify.tsx
 import React, { useState } from 'react';
 import styles from './DataModify.module.css'
+import LoveCom from '../emotion-component/LoveCom';
 interface DataModifyProps {
   // Define props here if needed
 }

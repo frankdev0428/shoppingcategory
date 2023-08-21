@@ -7,6 +7,7 @@ import Navbar from "./Navbar/Navbar";
 import axios, { CanceledError } from 'axios';
 import { useEffect , useState } from 'react';
 import LoveCom from './emotion-component/LoveCom'
+import LikeCom from "./emotion-component/LikeCom";
 interface User {
   id: number;
   name: string;
@@ -45,9 +46,8 @@ function App() {
         <p className="text-danger">{error}</p>
         <ul className="list-group">
         {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
-         {user.name} <LoveCom onClick={() => {
-          console.log('Clicked!')
-         }}/>
+         {user.name} 
+          <LikeCom onClick= {() => {console.log('liked!')}}/>
         </li>)}
         </ul>
       </div>
