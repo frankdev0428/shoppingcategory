@@ -1,22 +1,13 @@
-// LoveIcon.js
-import React, { useState } from 'react';
+import { AiFillHeart }  from 'react-icons/ai';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { useState } from 'react';
 
-const LoveIcon = () => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
+const LoveCom = () => {
   return (
-    <div>
-      <i
-        className={`fa${isClicked ? 's' : 'r'} fa-heart`}
-        onClick={handleClick}
-        style={{ color: isClicked ? 'red' : 'black', cursor: 'pointer' }}
-      ></i>
+    <div className='loveIcon'>
+     <AiFillHeart />
     </div>
-  );
-};
+  )
+}
 
-export default LoveIcon;
+export default LoveCom
