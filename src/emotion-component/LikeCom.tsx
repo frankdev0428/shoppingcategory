@@ -1,20 +1,17 @@
 import {useState} from 'react'
 import {AiFillLike ,AiFillDislike } from 'react-icons/ai'
-interface Props {
-    onClick : () => void ;
-}
 
-const LikeCom = ( {onClick} : Props) => {
-    const [status,setStatus] = useState(true)
-    const toggle = () => {
-        setStatus(!status);
-        onClick()
-    }
+
+const LikeCom = () => {
+   const [status,setStatus] = useState(true);
+   const toggle = () => {
+    setStatus(!status);
+   }
   return (
     <div>
-    {status? (<AiFillLike color='#1877F2' size={20} onClick={toggle}/>): 
-     ( <AiFillDislike color='#1877F2' size={20} onClick={toggle}/>)
-    }
+      {status ? (<AiFillLike size={20} onClick={toggle}/>) :
+      (<AiFillDislike onClick= {toggle} size={20}/>)
+      }
     </div>
   )
 }
