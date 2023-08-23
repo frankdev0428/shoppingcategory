@@ -6,6 +6,7 @@ import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import axios, { CanceledError } from 'axios';
 import { useEffect , useState } from 'react';
+import LikeCom from "./emotion-component/LikeCom";
 interface User {
   id: number;
   name: string;
