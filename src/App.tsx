@@ -43,14 +43,19 @@ function App() {
       setUsers(originalUsers);
     })
    }
-  
+  const addUser = () => {
+    const newUser = {id: 0,name: 'Hoang'};
+    setUsers([newUser,...users]);
+    axios.post('https://jsonplaceholder.typicode.com/users',newUser)
+    .then(res => setUsers([res.data,...users]))
+  }
   return (
     <div className={styles.app}>
       <Navbar />
       <div className="User">
        { isLoading && <div className="spinner-border"></div>}
-        
         <p className="text-danger">{error}</p>
+        <button className="btn btn-primary mb-3" onClick={addUser}>Add</button>
         <ul className="list-group">
         {users.map(user => <li className="list-group-item d-flex justify-content-between" key={user.id}>
          {user.name} 
