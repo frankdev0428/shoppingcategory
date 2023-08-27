@@ -4,9 +4,9 @@ import styles from '../src/App.module.css'
 import DataModify from "./modify/DataModify";
 import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import axios, { CanceledError } from 'axios';
 import { useEffect , useState } from 'react';
 import LikeCom from "./emotion-component/LikeCom";
+import apiClient , {CanceledError} from "./services/api-client";
 interface User {
   id: number;
   name: string;
@@ -20,8 +20,8 @@ function App() {
     const controller = new AbortController();
     setLoading(true) ;
 
-    axios
-     .get<User[]>('https://jsonplaceholder.typicode.com/users',{ signal: controller.signal })
+    apiClient
+     .get<User[]>('/users',{ signal: controller.signal })
      .then(res => {
       setUsers(res.data);
       setLoading(false);
@@ -37,7 +37,7 @@ function App() {
    const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setUsers(users.filter(u => u.id !== user.id))
-    axios.delete('https://jsonplaceholder.typicode.com/users/' + user.id)
+    apiClient.delete('https://jsonplaceholder.typicode.com/users/' + user.id)
     .catch(err => {
       setError(err.message);
       setUsers(originalUsers);
@@ -46,7 +46,7 @@ function App() {
   const addUser = () => {
     const newUser = {id: 0,name: 'Hoang'};
     setUsers([newUser,...users]);
-    axios.post('https://jsonplaceholder.typicode.com/users',newUser)
+    apiClient.post('/users',newUser)
     .then(({data: savedUser}) => setUsers([savedUser,...users]))
   }
 
@@ -55,7 +55,7 @@ function App() {
     const updatedUser = {...user, name: user.name  + '!'};
     setUsers(users.map( u => u.id === user.id ? updatedUser : u))
 
-    axios.patch('https://jsonplaceholder.typicode.com/users/' + user.id, updatedUser)
+    apiClient.patch('/users/' + user.id, updatedUser)
     .catch(err => {
       setError(err.message);
       setUsers(originalUsers);
