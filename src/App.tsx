@@ -4,31 +4,12 @@ import styles from '../src/App.module.css'
 import DataModify from "./modify/DataModify";
 import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import { useEffect , useState } from 'react';
-import  {CanceledError} from "./services/api-client";
 import userService,{ User } from "./services/user-service";
+import useUsers from "./hook/useUsers";
 
 
 function App() {
-  const [users,setUsers] = useState<User[]>([]) ;
-  const [error,setError] = useState('');
-  const [isLoading , setLoading] = useState(false);
-  useEffect( () => {
-    setLoading(true) ;
-
-    const {request, cancel} =  userService.getAll<User>();
-     request.then(res => {
-      setUsers(res.data);
-      setLoading(false);
-    })
-     .catch((err) => {
-      if (err instanceof CanceledError) return;
-      setError(err.message);
-      setLoading(false);
-    })
-   
-    return () => cancel();
-  }, [])
+  const {users, error, isLoading , setUsers, setError} = useUsers();
    const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setUsers(users.filter(u => u.id !== user.id))
