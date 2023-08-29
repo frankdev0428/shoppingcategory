@@ -5,12 +5,9 @@ import DataModify from "./modify/DataModify";
 import Footer from "./footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import { useEffect , useState } from 'react';
-import LikeCom from "./emotion-component/LikeCom";
-import apiClient , {CanceledError} from "./services/api-client";
-interface User {
-  id: number;
-  name: string;
-}
+import  {CanceledError} from "./services/api-client";
+import userService,{ User } from "./services/user-service";
+
 
 function App() {
   const [users,setUsers] = useState<User[]>([]) ;
@@ -20,9 +17,8 @@ function App() {
     const controller = new AbortController();
     setLoading(true) ;
 
-    apiClient
-     .get<User[]>('/users',{ signal: controller.signal })
-     .then(res => {
+    const {request, cancel} =  userService.getAllUsers();
+     request.then(res => {
       setUsers(res.data);
       setLoading(false);
     })
@@ -32,12 +28,12 @@ function App() {
       setLoading(false);
     })
    
-    return () => controller.abort();
+    return () => cancel();
   }, [])
    const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setUsers(users.filter(u => u.id !== user.id))
-    apiClient.delete('https://jsonplaceholder.typicode.com/users/' + user.id)
+    userService.deleteUser(user.id)
     .catch(err => {
       setError(err.message);
       setUsers(originalUsers);
@@ -46,7 +42,9 @@ function App() {
   const addUser = () => {
     const newUser = {id: 0,name: 'Hoang'};
     setUsers([newUser,...users]);
-    apiClient.post('/users',newUser)
+
+   userService
+   .createUser(newUser)
     .then(({data: savedUser}) => setUsers([savedUser,...users]))
   }
 
@@ -55,7 +53,7 @@ function App() {
     const updatedUser = {...user, name: user.name  + '!'};
     setUsers(users.map( u => u.id === user.id ? updatedUser : u))
 
-    apiClient.patch('/users/' + user.id, updatedUser)
+   userService.updateUser(updatedUser)
     .catch(err => {
       setError(err.message);
       setUsers(originalUsers);
